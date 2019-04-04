@@ -12,4 +12,25 @@ package org.demo.birds.entities;
  */
 public class Bird {
 
+    private String name;
+    private String livingArea;
+    double size;
+
+    public Bird(String name, String livingArea, double size) {
+        this.name = name;
+        this.livingArea = livingArea;
+        this.size = size;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLivingArea() {
+        return livingArea;
+    }
+
+    public double getSize() {
+        return size;
+    }
 }

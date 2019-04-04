@@ -32,5 +32,4 @@ public interface IUserCommandProcessor {
      * @param userInputReader объект Scanner который будет использоватеься для чтения дополнительных параметров.
      */
     void processUserCommand(String command, Scanner userInputReader);
-
 }
