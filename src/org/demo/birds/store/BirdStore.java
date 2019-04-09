@@ -11,21 +11,21 @@ import java.util.*;
  */
 public class BirdStore extends AbstractBirdStore {
 
-    private static BirdStore birdStore;
+    private static BirdStore instance;
     private Map<String, Bird> mapStorage = new HashMap<>();
 
     private BirdStore() {
-        birdStore = new BirdStore();
     }
 
-    public static BirdStore getBirdStore() {
-        return birdStore;
+    public static BirdStore getInstance() {
+        return instance == null ? new BirdStore() : instance;
     }
 
     @Override
     public void addBird(Bird b) {
+
         if (mapStorage.containsKey(b.getName())) {
-            System.out.println("Bird With name " + b.getName() + " already exists!");
+            System.out.println("Bird with name " + b.getName() + " already exists!");
         } else {
             mapStorage.put(b.getName(), b);
         }
@@ -33,6 +33,7 @@ public class BirdStore extends AbstractBirdStore {
 
     @Override
     public Bird searchByName(String nameToSearch) {
+
         if (mapStorage.containsKey(nameToSearch)) {
             return mapStorage.get(nameToSearch);
         }
@@ -41,10 +42,11 @@ public class BirdStore extends AbstractBirdStore {
 
     @Override
     public List searchByLivingArea(String livingAreaToFind) {
+
         List<Bird> listBirds = new ArrayList<>();
         for (Map.Entry<String, Bird> entry : mapStorage.entrySet()) {
             if (entry.getValue().getLivingArea().equals(livingAreaToFind)) {
-                listBirds.add((Bird) entry);
+                listBirds.add(entry.getValue());
             }
         }
         return listBirds;

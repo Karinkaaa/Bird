@@ -7,8 +7,7 @@ public class BirdStoreApplication {
 
     public static void main(String[] args) {
 
-         IInfiniteLoopProcessor userCommandProcessor = new UserCommandProcessor();
-         userCommandProcessor.processInLoop();
-
+        IInfiniteLoopProcessor userCommandProcessor = new UserCommandProcessor();
+        userCommandProcessor.processInLoop();
     }
 }
